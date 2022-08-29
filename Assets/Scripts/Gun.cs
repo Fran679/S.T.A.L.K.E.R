@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour {
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
     
+    
     float timeSinceLastShot;
 
     private void Start() {
@@ -38,9 +39,17 @@ public class Gun : MonoBehaviour {
     private void Shoot() {
         if (gunData.currentAmmo > 0) {
             if (CanShoot()) {
-                if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, gunData.maxDistance)){
+                if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, gunData.maxDistance))
+                {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.TakeDamage(gunData.damage);
+                    print(hitInfo.transform.name);
+                    
+                    if (hitInfo.transform.name == "Weir Ball")
+                    {
+                        print("U cant shoot this");
+                    }
+
                 }
 
                 gunData.currentAmmo--;
@@ -50,7 +59,8 @@ public class Gun : MonoBehaviour {
         }
     }
 
-    private void Update() {
+    private void Update()
+    {
         timeSinceLastShot += Time.deltaTime;
 
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
