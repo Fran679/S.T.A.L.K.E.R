@@ -26,5 +26,5 @@ Material:
     m_Floats:
     - _Cutoff: 0.53571427
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.11352698, g: 0.3301887, b: 0.0015574975, a: 1}
   m_BuildTextureStacks: []
