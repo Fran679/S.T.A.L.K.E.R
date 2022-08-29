@@ -11,12 +11,24 @@ public class GunData : ScriptableObject {
     [Header("Shooting")]
     public float damage;
     public float maxDistance;
+
+    [Header("Specifications")]
+    public GameObject bulletType;
+    public int bulletSpeed;
+
+    [Header("Gun Parts")]
+    public GameObject muzzle;
     
     [Header("Reloading")]
+
     public int currentAmmo;
     public int magSize;
-    [Tooltip("In RPM")] public float fireRate;
+    [Tooltip("In RPM")] 
+
+    public float fireRate;
     public float reloadTime;
-    [HideInInspector] public bool reloading;
+
+    [HideInInspector] 
+    public bool reloading;
     
 }

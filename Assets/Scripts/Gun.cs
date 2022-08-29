@@ -8,7 +8,8 @@ public class Gun : MonoBehaviour {
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
-    
+
+    public GameObject muzzle;
     
     float timeSinceLastShot;
 
@@ -66,5 +67,11 @@ public class Gun : MonoBehaviour {
         Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
     }
 
-    private void OnGunShot() {  }
+    private void OnGunShot() 
+    {
+        GameObject currentBullet = Instantiate(gunData.bulletType,muzzle.transform.position, Quaternion.identity);
+        currentBullet.transform.forward = cam.forward.normalized;
+        currentBullet.GetComponent<Rigidbody>().AddForce(cam.forward.normalized * gunData.bulletSpeed,ForceMode.Impulse);
+        currentBullet.transform.rotation =Quaternion.Euler(90,0,0);
+    }
 }
