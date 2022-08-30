@@ -8,8 +8,11 @@ public class Gun : MonoBehaviour {
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
+    [SerializeField] private Transform cañon; 
 
     public GameObject muzzle;
+
+    public GameObject backPoint;
     
     float timeSinceLastShot;
 
@@ -25,7 +28,8 @@ public class Gun : MonoBehaviour {
             StartCoroutine(Reload());
     }
 
-    private IEnumerator Reload() {
+    private IEnumerator Reload() 
+    {
         gunData.reloading = true;
 
         yield return new WaitForSeconds(gunData.reloadTime);
@@ -40,7 +44,7 @@ public class Gun : MonoBehaviour {
     private void Shoot() {
         if (gunData.currentAmmo > 0) {
             if (CanShoot()) {
-                if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, gunData.maxDistance))
+                if (Physics.Raycast(cañon.position, cañon.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.TakeDamage(gunData.damage);
@@ -64,14 +68,22 @@ public class Gun : MonoBehaviour {
     {
         timeSinceLastShot += Time.deltaTime;
 
-        Debug.DrawRay(cam.position, cam.forward * gunData.maxDistance);
+        Debug.DrawRay(cañon.position, cañon.forward * gunData.maxDistance);
     }
 
     private void OnGunShot() 
     {
+        Vector3 direccion = muzzle.transform.position - muzzle.transform.position;
+        
         GameObject currentBullet = Instantiate(gunData.bulletType,muzzle.transform.position, Quaternion.identity);
         currentBullet.transform.forward = cam.forward.normalized;
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.forward.normalized * gunData.bulletSpeed,ForceMode.Impulse);
-        currentBullet.transform.rotation =Quaternion.Euler(90,0,0);
-    }
+        
+        
+        //currentBullet.transform.rotation =Quaternion.Euler(90,0,0);
+        //cam.forward.normalized
+        //Quaternion.Euler(90,0,0);
+        
+        //Physics.BoxCast    CHECK LATER
+
 }

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class ArBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("References")]
+    [SerializeField] private GunData gunData;
+    [SerializeField] private Transform cam;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
