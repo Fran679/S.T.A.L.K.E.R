@@ -1075,8 +1075,12 @@ Transform:
   m_LocalPosition: {x: -11.77, y: 0, z: -12.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+<<<<<<< HEAD
   m_Children:
   - {fileID: 484118977}
+=======
+  m_Children: []
+>>>>>>> refs/remotes/origin/main
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1294,7 +1298,11 @@ Transform:
   - {fileID: 1421279709}
   - {fileID: 342647046}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 6
+=======
+  m_RootOrder: 8
+>>>>>>> refs/remotes/origin/main
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634662898
 GameObject:
@@ -1582,7 +1590,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh20450
+=======
+  m_Name: pb_Mesh20448
+>>>>>>> refs/remotes/origin/main
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3781,7 +3793,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh20588
+=======
+  m_Name: pb_Mesh20578
+>>>>>>> refs/remotes/origin/main
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
