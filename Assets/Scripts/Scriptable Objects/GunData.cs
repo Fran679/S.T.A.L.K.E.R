@@ -15,7 +15,7 @@ public class GunData : ScriptableObject {
     [Header("Specifications")]
     public GameObject bulletType;
     public int bulletSpeed;
-    public GameObject backPoint;
+    public int bulletCapacity;
 
     [Header("Gun Parts")]
     public GameObject muzzle;
