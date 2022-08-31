@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour {
     private float horizontalInput;
     private float verticalInput;
 
+    private float x, y;
+
     private void Start() => rb.freezeRotation = true;
 
     private void Update()
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour {
         moveDirection = (orientation.forward * verticalInput + orientation.right * horizontalInput).normalized;
 
         rb.drag = drag;
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
