@@ -10,6 +10,9 @@ public class SwatScrip : MonoBehaviour
     public Animator animator;
 
     private float x, y;
+
+    [Header("References")]
+    [SerializeField] private Transform cameraPosition;
     // Update is called once per frame
     void Update()
     {

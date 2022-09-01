@@ -16,10 +16,10 @@ MonoBehaviour:
   damage: 22
   maxDistance: 200
   bulletType: {fileID: 6526322607137396141, guid: 574cf2ece06d49a418dc523eff5d08de, type: 3}
-  bulletSpeed: 100
-  bulletCapacity: 118
+  bulletSpeed: 600
+  bulletCapacity: 38
   muzzle: {fileID: 8474602138041031550, guid: 604a3a3b79ce2c242aa3f00b85a3edca, type: 3}
-  currentAmmo: 0
+  currentAmmo: 31
   magSize: 31
   fireRate: 600
   reloadTime: 1.5
