@@ -7,7 +7,7 @@ public class InventoryWithRaycast : MonoBehaviour
     private int rayMaxDistance = 1         ;
     public Transform playerPosition;
     public Transform wolfPosition;
-    private int wolfDetectionDistance = 5;
+    private int wolfDetectionDistance = 3;
     private void FixedUpdate()
     {
         Debug.DrawRay(playerPosition.position, playerPosition.forward * rayMaxDistance);

@@ -63,7 +63,7 @@ public class Gun : MonoBehaviour
                     print(hitInfo.transform.name);
 
                     if (hitInfo.transform.name == "Weir Ball")
-                    {
+                    {   
                         print("U cant shoot this");
                     }
 
