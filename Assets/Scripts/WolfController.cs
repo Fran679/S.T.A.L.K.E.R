@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class WolfController : MonoBehaviour
 {
@@ -8,9 +10,14 @@ public class WolfController : MonoBehaviour
     public Transform target;
     public Transform enemy;
     public float maxRange;
+    NavMeshAgent agent;
+    public bool isDead=false;
+
 
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+
         animator = GetComponent<Animator>();
     }
 
@@ -31,5 +38,16 @@ public class WolfController : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
+        IsDead();
+    }
+    void IsDead()
+    {
+        if (isDead==true)
+        {
+            animator.SetBool("isRunning", false);
+
+            animator.SetBool("isDead", true);
+        }
+        
     }
 }
