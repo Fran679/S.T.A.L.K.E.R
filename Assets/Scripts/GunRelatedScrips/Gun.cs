@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
+
 
 public class Gun : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
     [SerializeField] private Transform cañon;
+    public PostProcessVolume prostp;
+    private Vignette _vignette;
 
     public GameObject muzzle;
 
@@ -19,6 +24,9 @@ public class Gun : MonoBehaviour
     {
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReload;
+        prostp= gameObject.GetComponent<PostProcessVolume>();
+        prostp.profile.TryGetSettings(out _vignette);
+        
     }
 
     private void OnDisable() => gunData.reloading = false;
@@ -84,7 +92,7 @@ public class Gun : MonoBehaviour
         Debug.DrawRay(cañon.position, cañon.forward * gunData.maxDistance);
     }
 
-    private void OnGunShot()
+    public void OnGunShot()
     {
         Vector3 direccion = muzzle.transform.position - muzzle.transform.position;
 
@@ -92,7 +100,8 @@ public class Gun : MonoBehaviour
         currentBullet.transform.forward = cam.forward.normalized;
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.forward.normalized * gunData.bulletSpeed, ForceMode.Impulse);
 
-
+        float factor = 0.05f;
+        _vignette.intensity.value += 0.025f;
         //currentBullet.transform.rotation =Quaternion.Euler(90,0,0);
         //cam.forward.normalized
         //Quaternion.Euler(90,0,0);
@@ -100,4 +109,6 @@ public class Gun : MonoBehaviour
         //Physics.BoxCast    CHECK LATER
 
     }
+
+ 
 }
